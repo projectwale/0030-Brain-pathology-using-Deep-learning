@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>Health - Medical Brain Pathology</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="Tooplate">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+     <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+     <link rel="stylesheet" href="../static/css/animate.css">
+     <link rel="stylesheet" href="../static/css/owl.carousel.css">
+     <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+     <script src="../static/js/jquery-3.3.1.js"></script>
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="../static/css/tooplate-style.css">
+    
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+    
+
+
+     <!-- HEADER -->
+     <header>
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-4 col-sm-5">
+                         <p>Welcome to a Professional Health Care</p>
+                    </div>
+                         
+                    <div class="col-md-8 col-sm-7 text-align-right">
+                         <span class="phone-icon"><i class="fa fa-phone"></i> 010-060-0160</span>
+                         <span class="date-icon"><i class="fa fa-calendar-plus-o"></i> 6:00 AM - 10:00 PM (Mon-Fri)</span>
+                         <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">info@company.com</a></span>
+                    </div>
+
+               </div>
+          </div>
+     </header>
+
+
+     <!-- MENU -->
+     <section class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="/homeusers" class="navbar-brand"><i class="fa fa-h-square"></i> Brain Pathology</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                         <li><a href="/homeusers" class="smoothScroll">Home</a></li>
+                         <li><a href="/appointment" class="smoothScroll">Make an appointment</a></li>
+                         <li><a href="/patientresult" class="smoothScroll">Report</a></li>
+                         <li class="appointment-btn"><a href="/">Logout</a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+
+     <!-- MAKE AN APPOINTMENT -->
+     <section id="appointment" data-stellar-background-ratio="3">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-6">
+                         <img src="../static/images/appointment-image.jpg" class="img-responsive" alt="">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                         <!-- CONTACT FORM HERE -->
+                         <form id="fileUploadForm">
+
+                              <!-- SECTION TITLE -->
+                              <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
+                                   <h2>Make an appointment</h2>
+                              </div>
+
+                              <div class="wow fadeInUp" data-wow-delay="0.8s">
+                                   <div class="col-md-6 col-sm-6">
+                                        <label for="name">Patient Name</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
+                                   </div>
+
+                                   <div class="col-md-6 col-sm-6">
+                                        <label for="email">Patient Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                   </div>
+
+                                   <div class="col-md-6 col-sm-6">
+                                        <label for="date">Select Date</label>
+                                        <input type="date" name="date" value="" class="form-control">
+                                   </div>
+
+                                   <div class="col-md-6 col-sm-6">
+                                        <label for="select">Select Doctor</label>
+                                        <select class="form-control" id="doctorname" name="doctorname">
+                                             {%- for i in result -%}
+                                             <option value="{{i[0]}}" >{{i[0]}}</option>
+                                             {%- endfor -%}
+                                        </select>
+                                   </div>
+
+                                   <div class="col-md-12 col-sm-12">
+                                        <label for="telephone">Upload Brain Tumor Image</label>
+                                        <input type="file" class="form-control" id="file" name="file" >
+                                        
+                                        
+                                        <label for="Message">Additional Message</label>
+                                        <textarea class="form-control" rows="5" id="message" name="message" placeholder="Message"></textarea>
+                                        
+
+                                        <div class="col-md-12 col-sm-12">
+                                             <label for="select">Select Symptoms</label>
+                                             <select class="form-control" multiple size="12" id="symptoms" name="symptoms[]">
+                                                 <option>Fever</option>
+                                                 <option>Cough</option>
+                                                 <option>Headache</option>
+                                                 <option>Fatigue</option>
+                                                 <option>Sore throat</option>
+                                                 <option>Shortness of breath</option>
+                                                 <option>Loss of taste or smell</option>
+                                                 <!-- Add more symptoms as needed -->
+                                             </select>
+                                         </div>
+                                        
+                                        
+                                        <button type="submit" class="form-control" id="cf-submit" >Submit Button</button>
+                                   </div>
+                              </div>
+                        </form>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+     <script>
+          $(document).ready(function () {
+      
+            $("#cf-submit").click(function (event) {
+              event.preventDefault();
+              var form = $('#fileUploadForm')[0];
+              var data = new FormData(form);
+              console.log(data)
+              $.ajax({
+                type: 'POST',
+                enctype: 'multipart/form-data',
+                url: "request1",
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (response) {
+      
+                  Swal.fire({
+                    title: 'Success!',
+                    text: response.message,
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                  }).then((result) => {
+                    // Check if the "Okay" button was clicked
+                    if (result.isConfirmed) {
+                      // Redirect to a new URL
+                      window.location.href = '/appointment'; // Replace with the desired URL
+                    }
+                  });
+      
+                },
+                error: function (e) {
+                  console.log("ERROR : ", e);
+                  $("#cf-submit").prop("disabled", false);
+                }
+              });
+            });
+          });
+        </script>
+
+
+
+     <!-- FOOTER -->
+     <footer data-stellar-background-ratio="5">
+          <div class="container">
+               <div class="row">
+
+                    
+                    <div class="col-md-12 col-sm-12 border-top">
+                         <div class="col-md-4 col-sm-6">
+                              <div class="copyright-text">
+                                   <p>Copyright &copy; 2023 Health - Medical Brain Pathology
+                                        | Design: <a href="#" target="_parent">rj</a></p>
+                              </div>
+                         </div>
+                         <div class="col-md-6 col-sm-6">
+                              <div class="footer-link">
+                                   <a href="#">About</a>
+                                   <a href="#">Contact</a>
+                                   <a href="#">Doctor</a>
+                                   <a href="#">Patients</a>
+                              </div>
+                         </div>
+                         <div class="col-md-2 col-sm-2 text-align-center">
+                              <div class="angle-up-btn">
+                                   <a href="#top" class="smoothScroll wow fadeInUp" data-wow-delay="1.2s"><i
+                                             class="fa fa-angle-up"></i></a>
+                              </div>
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </footer>
+
+     <!-- SCRIPTS -->
+     <script src="../static/js/jquery.js"></script>
+     <script src="../static/js/bootstrap.min.js"></script>
+     <script src="../static/js/jquery.sticky.js"></script>
+     <script src="../static/js/jquery.stellar.min.js"></script>
+     <script src="../static/js/wow.min.js"></script>
+     <script src="../static/js/smoothscroll.js"></script>
+     <script src="../static/js/owl.carousel.min.js"></script>
+     <script src="../static/js/custom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/css/style1.css" />
+  <title>Health - Medical Brain Pathology</title>
+
+  <script src="../static/js/jquery-3.3.1.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+
+
+        <form id="loginForm" enctype="multipart/form-data" class="sign-in-form">
+          <h2 class="title">USER SIGN IN</h2>
+
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="text" placeholder="Email" id="Email" name="Email" />
+          </div>
+          
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="password" id="password1" name="password1" />
+
+          </div>
+
+          <div class="d-flex align-items-center">
+
+            <button id="btnSubmit" class="btn btn-primary ms-auto">
+              Login
+            </button>
+          </div>
+
+
+          <p class="social-text">Brain connectivity is increasingly being studied using connectomes.</p>
+          <div class="social-media">
+            <a href="/" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="/" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="/" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="/" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </form>
+
+
+        <form id="fileUploadForm" enctype="multipart/form-data" class="sign-up-form">
+          <h2 class="title">USER REGISTRATION</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Enter Your Username" id="Username" name="Username" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Enter Your Email" id="Email" name="Email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-phone"></i>
+            <input type="number" placeholder="Enter Your phone" id="phone" name="phone" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Enter Your password" id="password" name="password" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-image"></i>
+            <input type="file" id="file" name="file" />
+          </div>
+
+          <div class="d-flex align-items-center">
+
+            <button id="btnSubmit1" class="btn btn-primary ms-auto">
+              Register
+            </button>
+          </div>
+
+
+
+          <p class="social-text">Brain connectivity is increasingly being studied using connectomes.</p>
+          <div class="social-media">
+            <a href="/" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="/" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="/" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="/" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>USER SIGN UP</h3>
+          <p>
+            Typical structural connectome definitions do not directly take white matter pathology into account.
+          </p>
+          <button class="btn transparent" id="sign-up-btn">
+            GO
+          </button>
+        </div>
+        <img src="../static/img/register.svg" class="image" alt="Register" />
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>USER SIGN IN</h3>
+          <p>
+            Typical structural connectome definitions do not directly take white matter pathology into account. ..
+          </p>
+          <button class="btn transparent" id="sign-in-btn">
+            Go
+          </button>
+        </div>
+        <img src="../static/img/login.svg" class="image" alt="Login" />
+      </div>
+    </div>
+  </div>
+  <script src="../static/js/main.js"></script>
+
+  
+  <script>
+    $(document).ready(function () {
+
+      $("#btnSubmit1").click(function (event) {
+        event.preventDefault();
+        var form = $('#fileUploadForm')[0];
+        var data = new FormData(form);
+        console.log(data)
+        $.ajax({
+          type: 'POST',
+          enctype: 'multipart/form-data',
+          url: "register1",
+          data: data,
+          processData: false,
+          contentType: false,
+          cache: false,
+          timeout: 600000,
+          success: function (response) {
+
+            Swal.fire({
+              title: 'Success!',
+              text: response.message,
+              icon: 'success',
+              confirmButtonText: 'Okay'
+            }).then((result) => {
+              // Check if the "Okay" button was clicked
+              if (result.isConfirmed) {
+                // Redirect to a new URL
+                window.location.href = '/'; // Replace with the desired URL
+              }
+            });
+
+          },
+          error: function (e) {
+            console.log("ERROR : ", e);
+            $("#btnSubmit1").prop("disabled", false);
+          }
+        });
+      });
+    });
+  </script>
+ 
+
+
+  <script>
+    $(document).ready(function () {
+
+      $("#btnSubmit").click(function (event) {
+        event.preventDefault();
+        var form = $('#loginForm')[0];
+        var data = new FormData(form);
+        console.log(data)
+        $.ajax({
+          type: 'POST',
+          enctype: 'multipart/form-data',
+          url: "login1",
+          data: data,
+          processData: false,
+          contentType: false,
+          cache: false,
+          timeout: 600000,
+          success: function (response) {
+            if (response == "success") {
+              Swal.fire({
+                position: "top-center",
+                icon: "success",
+                text: "Login successful!",
+                confirmButtonText: 'Okay'
+
+              }).then((result) => {
+                // Check if the "Okay" button was clicked
+                if (result.isConfirmed) {
+                  // Redirect to a new URL
+                  window.location.href = '/homeusers';
+                }
+              });
+
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Login failed",
+                confirmButtonText: 'try'
+              }).then((result) => {
+                // Check if the "Okay" button was clicked
+                if (result.isConfirmed) {
+                  // Redirect to a new URL
+                  window.location.href = '/user';
+                }
+              });
+            }
+          },
+          error: function (e) {
+            console.log("ERROR : ", e);
+            $("#btnSubmit").prop("disabled", false);
+          }
+        });
+      });
+    });
+  </script>
+
+
+
+
+</body>
+
+</html>

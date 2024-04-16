@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+     <title>Health - Medical Brain Pathology</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="Tooplate">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+     <link rel="stylesheet" href="../static/css/magnific-popup.css">
+
+     <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+     <link rel="stylesheet" href="../static/css/animate.css">
+
+     <link rel="stylesheet" href="../static/css/owl.carousel.css">
+     <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="../static/css/tooplate-style.css">
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+     <script src="../static/js/jquery-3.3.1.js"></script>
+     <style>
+          .container1 {
+               max-width: 600px;
+               margin: 50px auto;
+               text-align: center;
+               padding: 20px;
+               border: 1px solid #ccc;
+               border-radius: 8px;
+               background-color: #f9f9f9;
+          }
+
+          input[type="file"] {
+               margin-bottom: 10px;
+          }
+
+          button {
+               padding: 10px 20px;
+               background-color: #007BFF;
+               color: #fff;
+               border: none;
+               border-radius: 4px;
+               cursor: pointer;
+          }
+
+          button:hover {
+               background-color: #0056b3;
+          }
+
+          #records {
+               margin-top: 20px;
+               text-align: left;
+          }
+
+          .fDD {
+               font-size: 22px;
+          }
+
+          .DD {
+               display: inline-block;
+          }
+
+          .det {
+               padding: 20px;
+               float: left;
+               font-family: 'Karla', sans-serif;
+          }
+
+          .dow a {
+               font-family: 'Monoton', cursive;
+               padding: 30px 40px;
+               float: right;
+               margin: 60px -29%;
+               text-decoration: none;
+               background: #4a90e2;
+               color: #fff;
+               border-radius: 8px;
+               box-shadow: 0 5px 0 0 #265387;
+          }
+     </style>
+
+
+</head>
+
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+
+
+     <!-- HEADER -->
+     <header>
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-4 col-sm-3">
+                         <p>Welcome to a Professional Health Care</p>
+                    </div>
+
+                    <div class="col-md-8 col-sm-9 text-align-right">
+                         <span class="phone-icon"><i class="fa fa-phone"></i> 010-060-0160</span>
+                         <span class="date-icon"><i class="fa fa-calendar-plus-o"></i> 6:00 AM - 10:00 PM
+                              (Mon-Fri)</span>
+                         <span class="email-icon"><i class="fa fa-envelope-o"></i> <a
+                                   href="#">info@company.com</a></span>
+                    </div>
+
+               </div>
+          </div>
+     </header>
+
+
+     <!-- MENU -->
+     <section class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="/homeadmin" class="navbar-brand"><i class="fa fa-h-square"></i> Brain Pathology</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                         <li><a href="/homeadmin" class="smoothScroll">Home</a></li>
+                         <li><a href="/serviceadmin" class="smoothScroll">Patients Requests</a></li>
+
+                         <li class="appointment-btn"><a href="/">logout</a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+
+     <!-- NEWS DETAIL -->
+     <section id="news-detail" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-8 col-sm-7">
+                         <!-- NEWS THUMB -->
+                         <div class="news-detail-thumb">
+                              <div class="news-image">
+                                   <img src="../{{ data[8] }}" class="img-responsive" alt="">
+                              </div>
+                              <h3>Review Annual Medical Research Symptoms</h3>
+                              <blockquote>{{ data[7] }}</blockquote>
+
+
+                              <div class="container1">
+                                   <h4>Upload Brain Tumor MRI Image</h4>
+                                   <form id="fileUploadForm">
+                                        <input type="file" name="file" id="file" required>
+                                        <input type="text" name="email" id="email" value="{{ data[2] }}" hidden>
+                                        <input type="text" name="name" id="name" value="{{ data[1] }}" hidden>
+                                        <button type="submit" id="btnSubmit">Upload</button>
+                                   </form>
+
+                              </div>
+
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-5">
+                         <div class="news-sidebar">
+
+
+                              <div class="recent-post">
+                                   <h4>ABOUT OF PATIENTS</h4>
+                                   <div class="news-author">
+                                        <h4>USERNAME </h4>
+                                        <p>{{ data[1] }}</p>
+                                   </div>
+
+
+                                   <div class="news-author">
+                                        <h4>EMAILADDRESS</h4>
+                                        <p>{{ data[2] }}</p>
+                                   </div>
+
+                                   <div class="news-author">
+                                        <h4>DATE OF UPLOAD</h4>
+                                        <p>{{ data[3] }}</p>
+                                   </div>
+                                   <div class="news-author">
+                                        <h4>DISEASE CLASSIFY</h4>
+                                        <p>{{ data[9] }}</p>
+                                   </div>
+                              </div>
+
+
+
+                              <div class="news-ads sidebar-ads">
+                                   <h4>Download Brain Tumor MRI </h4>
+                                   <a class="btn btn-primary" download="" href="../{{ data[5] }}">Download
+                                        Image<i class="fa fa-download"></i></a>
+
+                                   <div class="DD dow">
+                                        <a class="btn btn-primary" href="../{{ data[5] }}"> View
+                                             Image</a>
+                                   </div>
+
+
+                              </div>
+
+
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+     <!--================ Service section end =================-->
+
+     <script>
+          $(document).ready(function () {
+
+               $("#btnSubmit").click(function (event) {
+                    event.preventDefault();
+
+                    var form = $('#fileUploadForm')[0];
+                    var data = new FormData(form);
+                    console.log(data)
+                    $.ajax({
+                         type: 'POST',
+                         enctype: 'multipart/form-data',
+                         url: "checkdisease",
+                         data: data,
+                         processData: false,
+                         contentType: false,
+                         cache: false,
+                         timeout: 600000,
+                         success: function (response) {
+                              alert
+
+                              // Display the image and message in SweetAlert
+                              Swal.fire({
+                                   imageUrl: response.Image_path,
+                                   imageWidth: 300,  // Set the desired width of the image
+                                   title: response.final_prediction,
+                                   text: response.message,
+                                   confirmButtonText: 'Okay'
+
+                              }).then((result) => {
+                                   // Check if the "Okay" button was clicked
+                                   if (result.isConfirmed) {
+                                        // Redirect to a new URL
+                                        window.location.href = '/serviceadmin'; // Replace with the desired URL
+                                   }
+                              });
+
+
+                         },
+                         error: function (e) {
+                              console.log("ERROR : ", e);
+                              $("#btnSubmit").prop("disabled", false);
+                         }
+                    });
+
+               });
+          });
+     </script>
+
+
+
+
+     <!-- FOOTER -->
+     <footer data-stellar-background-ratio="5">
+          <div class="container">
+               <div class="row">
+
+
+
+                    <div class="col-md-12 col-sm-12 border-top">
+                         <div class="col-md-4 col-sm-6">
+                              <div class="copyright-text">
+                                   <p>Copyright &copy; 2023 Health - Medical Brain Pathology
+                                        | Design: <a href="#" target="_parent">rj</a></p>
+                              </div>
+                         </div>
+                         <div class="col-md-6 col-sm-6">
+                              <div class="footer-link">
+                                   <a href="#">About</a>
+                                   <a href="#">Contact</a>
+                                   <a href="#">Doctor</a>
+                                   <a href="#">Patients</a>
+                              </div>
+                         </div>
+                         <div class="col-md-2 col-sm-2 text-align-center">
+                              <div class="angle-up-btn">
+                                   <a href="#top" class="smoothScroll wow fadeInUp" data-wow-delay="1.2s"><i
+                                             class="fa fa-angle-up"></i></a>
+                              </div>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </footer>
+
+
+     <!-- SCRIPTS -->
+     <script src="../static/js/jquery.js"></script>
+     <script src="../static/js/bootstrap.min.js"></script>
+     <script src="../static/js/jquery.sticky.js"></script>
+     <script src="../static/js/jquery.stellar.min.js"></script>
+     <script src="../static/js/jquery.magnific-popup.min.js"></script>
+     <script src="../static/js/magnific-popup-options.js"></script>
+     <script src="../static/js/wow.min.js"></script>
+     <script src="../static/js/smoothscroll.js"></script>
+     <script src="../static/js/owl.carousel.min.js"></script>
+     <script src="../static/js/custom.js"></script>
+
+</body>
+
+</html>
